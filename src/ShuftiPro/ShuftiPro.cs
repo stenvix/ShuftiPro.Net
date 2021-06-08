@@ -46,28 +46,33 @@ namespace ShuftiPro
         {
             this.EnsureRequestIsValid(verification);
 
-            return await this.MakeCall<ShuftiProFeedback>(HttpMethod.Post, null, verification, this.clientCredentials);
+            return await this.MakeCall<ShuftiProFeedback>(HttpMethod.Post, null, verification, this.clientCredentials)
+                .ConfigureAwait(false);
         }
 
         public async Task<ShuftiProFeedback> VerifyAsync(ShuftiProVerification verification, ShuftiProCredentials requestCredentials)
         {
             this.EnsureRequestIsValid(verification);
 
-            return await this.MakeCall<ShuftiProFeedback>(HttpMethod.Post, null, verification, requestCredentials);
+            return await this.MakeCall<ShuftiProFeedback>(HttpMethod.Post, null, verification, requestCredentials)
+                .ConfigureAwait(false);
         }
 
         public async Task<ShuftiProStatus> GetStatusAsync(ShuftiProReference reference)
         {
             this.EnsureRequestIsValid(reference);
 
-            return await this.MakeCall<ShuftiProStatus>(HttpMethod.Post, new Uri("/status", UriKind.Relative), reference, this.clientCredentials);
+            return await this.MakeCall<ShuftiProStatus>(HttpMethod.Post, new Uri("/status", UriKind.Relative),
+                reference, this.clientCredentials).ConfigureAwait(false);
         }
 
         public async Task<ShuftiProStatus> GetStatusAsync(ShuftiProReference reference, ShuftiProCredentials requestCredentials)
         {
             this.EnsureRequestIsValid(reference);
 
-            return await this.MakeCall<ShuftiProStatus>(HttpMethod.Post, new Uri("/status", UriKind.Relative), reference, requestCredentials);
+            return await this
+                .MakeCall<ShuftiProStatus>(HttpMethod.Post, new Uri("/status", UriKind.Relative), reference,
+                    requestCredentials).ConfigureAwait(false);
         }
 
         protected void EnsureRequestIsValid(object request)
