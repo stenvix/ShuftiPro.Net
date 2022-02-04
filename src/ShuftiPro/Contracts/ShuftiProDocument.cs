@@ -30,7 +30,7 @@ namespace ShuftiPro.Contracts
 
         public bool? FetchEnhancedData { get; set; }
 
-        public bool? BacksideProofRequired { get; set; }
+        public string BacksideProofRequired { get; set; }
 
         public bool? AllowOffline { get; set; }
 

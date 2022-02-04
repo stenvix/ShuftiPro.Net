@@ -14,7 +14,7 @@ namespace ShuftiPro.Contracts.Abstractions
 
         [JsonConverter(typeof(ShuftiProBoolToIntConverter))]
         [JsonProperty("backside_proof_required", NullValueHandling = NullValueHandling.Ignore)]
-        bool? BacksideProofRequired { get; set; }
+        string BacksideProofRequired { get; set; }
 
         [JsonConverter(typeof(ShuftiProBoolToIntConverter))]
         [JsonProperty("allow_offline", NullValueHandling = NullValueHandling.Ignore)]

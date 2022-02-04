@@ -20,7 +20,7 @@ namespace ShuftiPro.Contracts
 
         public bool? AddressFuzzyMatch { get; set; }
 
-        public bool? BacksideProofRequired { get; set; }
+        public string BacksideProofRequired { get; set; }
 
         public ShuftiProVerificationInstruction Instruction { get; set; }
     }

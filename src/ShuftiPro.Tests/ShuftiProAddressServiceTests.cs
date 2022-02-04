@@ -30,7 +30,7 @@ namespace ShuftiPro.Tests
                        ShuftiProAddressType.UtilityBill
                     },
                     AddressFuzzyMatch = true,
-                    BacksideProofRequired = false
+                    BacksideProofRequired = "0"
                 }
             };
 
@@ -69,7 +69,7 @@ namespace ShuftiPro.Tests
                         ShuftiProAddressType.UtilityBill
                     },
                     AddressFuzzyMatch = true,
-                    BacksideProofRequired = false
+                    BacksideProofRequired = "0"
                 }
             };
 
@@ -103,7 +103,7 @@ namespace ShuftiPro.Tests
                         ShuftiProAddressType.UtilityBill
                     },
                     AddressFuzzyMatch = true,
-                    BacksideProofRequired = false
+                    BacksideProofRequired = "0"
                 }
             };
 
@@ -145,7 +145,7 @@ namespace ShuftiPro.Tests
                         ShuftiProAddressType.UtilityBill
                     },
                     AddressFuzzyMatch = true,
-                    BacksideProofRequired = false
+                    BacksideProofRequired = "0"
                 }
             };
 
