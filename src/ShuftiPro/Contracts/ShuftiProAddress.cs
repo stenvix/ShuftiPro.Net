@@ -16,6 +16,8 @@ namespace ShuftiPro.Contracts
 
         public string Proof { get; set; }
 
+        public string TaxIdentityNumber { get; set; }
+
         public DateTime? IssueDate { get; set; }
 
         public bool? AddressFuzzyMatch { get; set; }

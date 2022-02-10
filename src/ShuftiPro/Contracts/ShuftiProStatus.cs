@@ -28,5 +28,7 @@ namespace ShuftiPro.Contracts
         public ShuftiProProofData Proofs { get; set; }
 
         public ShuftiProAdditionalData AdditionalData { get; set; }
+
+        public ShuftiProAddress Address { get; set; }
     }
 }

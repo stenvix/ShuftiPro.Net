@@ -31,5 +31,8 @@ namespace ShuftiPro.Contracts.Abstractions
 
         [JsonProperty("info", NullValueHandling = NullValueHandling.Ignore)]
         ShuftiProUserInfo Info { get; set; }
+
+        [JsonProperty("address", NullValueHandling = NullValueHandling.Ignore)]
+        ShuftiProAddress Address { get; set; }
     }
 }

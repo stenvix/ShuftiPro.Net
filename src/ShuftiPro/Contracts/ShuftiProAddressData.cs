@@ -10,6 +10,8 @@ namespace ShuftiPro.Contracts
 
         public string FullAddress { get; set; }
 
+        public string TaxIdentityNumber { get; set; }
+
         public DateTime? IssueDate { get; set; }
 
         public ShuftiProDocumentType[] SelectedTypes { get; set; }

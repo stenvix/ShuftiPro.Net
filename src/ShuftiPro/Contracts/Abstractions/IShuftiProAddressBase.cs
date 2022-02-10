@@ -12,6 +12,10 @@ namespace ShuftiPro.Contracts.Abstractions
         [StringLength(250, MinimumLength = 2)]
         string FullAddress { get; set; }
 
+        [JsonProperty("tax_identity_number", NullValueHandling = NullValueHandling.Ignore)]
+        [StringLength(255, MinimumLength = 2)]
+        string TaxIdentityNumber { get; set; }
+
         [JsonConverter(typeof(ShuftiProDateTimeConverter))]
         [JsonProperty("issue_date", NullValueHandling = NullValueHandling.Ignore)]
         DateTime? IssueDate { get; set; }

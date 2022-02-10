@@ -28,5 +28,7 @@ namespace ShuftiPro.Contracts
         public ShuftiProFeedbackData Data { get; set; }
 
         public ShuftiProUserInfo Info { get; set; }
+
+        public ShuftiProAddress Address { get; set; }
     }
 }
