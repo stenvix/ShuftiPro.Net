@@ -9,6 +9,6 @@ namespace ShuftiPro.Contracts.Abstractions
         ShuftiProNameData Name { get; set; }
 
         [JsonProperty("selected_type")]
-        ShuftiProDocumentType[] SelectedTypes { get; set; }
+        ShuftiProAddressType[] SelectedTypes { get; set; }
     }
 }
