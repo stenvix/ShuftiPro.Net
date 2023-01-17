@@ -14,7 +14,7 @@ namespace ShuftiPro.Contracts
 
         public DateTime? IssueDate { get; set; }
 
-        public ShuftiProDocumentType[] SelectedTypes { get; set; }
+        public ShuftiProAddressType[] SelectedTypes { get; set; }
 
         public ShuftiProAddressType[] SupportedTypes { get; set; }
     }
