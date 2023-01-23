@@ -13,7 +13,7 @@
     <Copyright>Valentyn Stepanov</Copyright>
     <PackageId>ShuftiPro.Net</PackageId>
     <Product>ShuftiPro.Net</Product>
-    <PackageVersion>0.0.39</PackageVersion>
+    <PackageVersion>0.0.40</PackageVersion>
     <Title>ShuftiPro.Net</Title>
     <Description>Implementation of Shufti Pro API as .NET client</Description>
     <PackageTags>Shufti, ShuftiPro, Shufti Pro</PackageTags>
