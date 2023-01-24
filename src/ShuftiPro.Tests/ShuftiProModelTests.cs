@@ -53,5 +53,29 @@ namespace ShuftiPro.Tests
             status = JsonConvert.DeserializeObject<ShuftiProStatus>(statusJson);
             status.Should().NotBeNull();
         }
+
+        [TestCase(null, null)]
+        [TestCase(false, false)]
+        [TestCase(false, true)]
+        [TestCase(true, false)]
+        [TestCase(true, null)]
+        [TestCase(null, false)]
+        [TestCase(true, true)]
+        public void SerializeFace_ValidObject_BeSerialized(bool? allowOffline, bool? allowOnline)
+        {
+            var face = new ShuftiProFace
+            {
+                AllowOffline = allowOffline,
+                AllowOnline = allowOnline,
+            };
+
+            var faceJson = JsonConvert.SerializeObject(face);
+            faceJson.Should().NotBeEmpty();
+
+            face = JsonConvert.DeserializeObject<ShuftiProFace>(faceJson);
+            face.Should().NotBeNull();
+            face.AllowOnline.Should().Be(allowOnline);
+            face.AllowOffline.Should().Be(allowOffline);
+        }
     }
 }

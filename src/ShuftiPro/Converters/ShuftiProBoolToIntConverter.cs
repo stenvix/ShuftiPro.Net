@@ -7,9 +7,9 @@ namespace ShuftiPro.Converters
     {
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
-            if (value != null)
+            if (value != null && value is bool isChecked)
             {
-                writer.WriteValue(((bool)value) ? 1 : 0);
+                writer.WriteValue(isChecked ? "1" : "0");
             }
         }
 
