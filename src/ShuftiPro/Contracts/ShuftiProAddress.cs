@@ -24,6 +24,8 @@ namespace ShuftiPro.Contracts
 
         public bool? BacksideProofRequired { get; set; }
 
+        public bool? AllowOffline { get; set; }
+
         public ShuftiProVerificationInstruction Instruction { get; set; }
     }
 }
