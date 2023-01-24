@@ -16,6 +16,10 @@ namespace ShuftiPro.Contracts.Abstractions
         [JsonProperty("backside_proof_required", NullValueHandling = NullValueHandling.Ignore)]
         bool? BacksideProofRequired { get; set; }
 
+        [JsonConverter(typeof(ShuftiProBoolToIntConverter))]
+        [JsonProperty("allow_offline", NullValueHandling = NullValueHandling.Ignore)]
+        bool? AllowOffline { get; set; }
+
         [JsonProperty("verification_instructions", NullValueHandling = NullValueHandling.Ignore)]
         ShuftiProVerificationInstruction Instruction { get; set; }
     }
