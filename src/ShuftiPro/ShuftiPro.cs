@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -71,6 +72,13 @@ namespace ShuftiPro
             return await this.MakeCall<ShuftiProStatus>(HttpMethod.Post, new Uri("/status", UriKind.Relative), reference, requestCredentials, cancellationToken);
         }
 
+        public async Task<Stream> GetProofAsync(ShuftiProProofAccess accessToken, Uri uri, CancellationToken cancellationToken = default)
+        {
+            this.EnsureRequestIsValid(accessToken);
+
+            return await this.MakeProofCall(HttpMethod.Post, uri, accessToken, cancellationToken);
+        }
+
         private void EnsureRequestIsValid(object request)
         {
             var context = new ValidationContext(request);
@@ -112,6 +120,26 @@ namespace ShuftiPro
                 var responseContent = await response.Content.ReadAsStringAsync();
 
                 return JsonConvert.DeserializeObject<TResponse>(responseContent);
+            }
+            catch (Exception e)
+            {
+                throw new ShuftiProException(e.Message, e);
+            }
+        }
+
+        private async Task<Stream> MakeProofCall(HttpMethod method, Uri requestUri, object content, CancellationToken cancellationToken = default)
+        {
+            var httpRequest = new HttpRequestMessage(method, requestUri);
+
+            try
+            {
+                var requestContent = JsonConvert.SerializeObject(content);
+                httpRequest.Content = new StringContent(requestContent, Encoding.UTF8, "application/json"); ;
+
+                var response = await httpClient.SendAsync(httpRequest, cancellationToken);
+                var responseContent = await response.Content.ReadAsStreamAsync();
+
+                return responseContent;
             }
             catch (Exception e)
             {

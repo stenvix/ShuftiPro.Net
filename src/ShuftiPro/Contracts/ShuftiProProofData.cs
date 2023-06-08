@@ -11,5 +11,7 @@ namespace ShuftiPro.Contracts
         public ShuftiProAddressProof Address { get; set; }
 
         public ShuftiProProof Consent { get; set; }
+
+        public string AccessToken { get; set; }
     }
 }

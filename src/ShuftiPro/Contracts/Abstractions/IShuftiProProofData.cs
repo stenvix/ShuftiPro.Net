@@ -2,7 +2,7 @@
 
 namespace ShuftiPro.Contracts.Abstractions
 {
-    interface IShuftiProProofData
+    interface IShuftiProProofData : IShuftiProProofAccess
     {
         [JsonProperty("face")]
         ShuftiProProof Face { get; set; }
