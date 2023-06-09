@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.0.42</Version>
+    <Version>0.0.43</Version>
     <Authors>Valentyn Stepanov</Authors>
     <PackageProjectUrl>https://github.com/stenvix/ShuftiPro.Net</PackageProjectUrl>
     <RepositoryUrl>https://github.com/stenvix/ShuftiPro.Net</RepositoryUrl>
