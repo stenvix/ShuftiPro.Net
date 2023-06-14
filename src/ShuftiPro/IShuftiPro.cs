@@ -17,6 +17,6 @@ namespace ShuftiPro
 
         Task<ShuftiProStatus> GetStatusAsync(ShuftiProReference reference, ShuftiProCredentials requestCredentials, CancellationToken cancellationToken = default);
 
-        Task<byte[]> GetProofAsync(ShuftiProProofAccess accessToken, Uri uri, CancellationToken cancellationToken = default);
+        Task<ShuftiProProofFileData> GetProofAsync(ShuftiProProofAccess accessToken, Uri uri, CancellationToken cancellationToken = default);
     }
 }
