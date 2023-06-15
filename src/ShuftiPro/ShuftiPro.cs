@@ -72,7 +72,7 @@ namespace ShuftiPro
             return await this.MakeCall<ShuftiProStatus>(HttpMethod.Post, new Uri("/status", UriKind.Relative), reference, requestCredentials, cancellationToken);
         }
 
-        public async Task<Stream> GetProofAsync(ShuftiProProofAccess accessToken, Uri uri, CancellationToken cancellationToken = default)
+        public async Task<ShuftiProProofFileData> GetProofAsync(ShuftiProProofAccess accessToken, Uri uri, CancellationToken cancellationToken = default)
         {
             this.EnsureRequestIsValid(accessToken);
 
@@ -127,7 +127,7 @@ namespace ShuftiPro
             }
         }
 
-        private async Task<Stream> MakeProofCall(HttpMethod method, Uri requestUri, object content, CancellationToken cancellationToken = default)
+        private async Task<ShuftiProProofFileData> MakeProofCall(HttpMethod method, Uri requestUri, object content, CancellationToken cancellationToken = default)
         {
             var httpRequest = new HttpRequestMessage(method, requestUri);
 
@@ -139,7 +139,7 @@ namespace ShuftiPro
                 var response = await httpClient.SendAsync(httpRequest, cancellationToken);
                 var responseContent = await response.Content.ReadAsStreamAsync();
 
-                return responseContent;
+                return new ShuftiProProofFileData { Proof = responseContent, ContentType = response.Content.Headers.ContentType.ToString() };
             }
             catch (Exception e)
             {
