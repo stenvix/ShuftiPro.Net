@@ -22,6 +22,10 @@ namespace ShuftiPro.Contracts.Abstractions
         [JsonProperty("document_number", NullValueHandling = NullValueHandling.Ignore)]
         string DocumentNumber { get; set; }
 
+        [StringLength(100, MinimumLength = 2)]
+        [JsonProperty("country", NullValueHandling = NullValueHandling.Ignore)]
+        string Country { get; set; }
+
         [JsonConverter(typeof(ShuftiProDateTimeConverter))]
         [JsonProperty("issue_date", NullValueHandling = NullValueHandling.Ignore)]
         DateTime? IssueDate { get; set; }
