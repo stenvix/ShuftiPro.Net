@@ -26,6 +26,8 @@ namespace ShuftiPro.Contracts
 
         public bool? AllowOffline { get; set; }
 
+        public bool? ShowOcrForm { get; set; }
+
         public ShuftiProVerificationInstruction Instruction { get; set; }
     }
 }

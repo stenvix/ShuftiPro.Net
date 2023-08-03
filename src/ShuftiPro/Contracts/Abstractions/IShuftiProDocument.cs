@@ -24,6 +24,10 @@ namespace ShuftiPro.Contracts.Abstractions
         [JsonProperty("allow_online", NullValueHandling = NullValueHandling.Ignore)]
         bool? AllowOnline { get; set; }
 
+        [JsonConverter(typeof(ShuftiProBoolToIntConverter))]
+        [JsonProperty("show_ocr_form", NullValueHandling = NullValueHandling.Ignore)]
+        bool? ShowOcrForm { get; set; }
+
         [JsonProperty("verification_instructions", NullValueHandling = NullValueHandling.Ignore)]
         ShuftiProVerificationInstruction Instruction { get; set; }
     }
