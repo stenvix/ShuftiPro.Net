@@ -11,8 +11,10 @@ using System.Threading;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using ShuftiPro.Contracts;
+using ShuftiPro.Contracts.Abstractions;
 using ShuftiPro.Exceptions;
 using ShuftiPro.Options;
+using ShuftiPro.Utils;
 
 namespace ShuftiPro
 {
@@ -88,6 +90,19 @@ namespace ShuftiPro
                 throw new ValidationException(results.First().ErrorMessage);
             }
         }
+        
+        private void EnsureSignatureIsValid(HttpResponseMessage response, string responseContent, ShuftiProCredentials credentials)
+        {
+            if (response.Headers.TryGetValues("Signature", out var signatures))
+            {
+                var calculatedSignature = ShuftiProUtils.Sha256Hash(responseContent + credentials.SecretKey);
+
+                if (signatures.Any(s => s != calculatedSignature))
+                {
+                    throw new ShuftiProException("Invalid response signature");
+                }
+            }
+        }
 
         private void EnsureCredentialsIsValid(ShuftiProCredentials credentials)
         {
@@ -119,6 +134,7 @@ namespace ShuftiPro
                 var response = await httpClient.SendAsync(httpRequest, cancellationToken);
                 var responseContent = await response.Content.ReadAsStringAsync();
 
+                EnsureSignatureIsValid(response, responseContent, clientCredentials);
                 return JsonConvert.DeserializeObject<TResponse>(responseContent);
             }
             catch (Exception e)
