@@ -102,6 +102,9 @@ namespace ShuftiPro.Enums
         [EnumMember(Value = "SIP")]
         SIP,
 
+        [EnumMember(Value = "SIE")]
+        SIE,
+
         [EnumMember(Value = "RCA")]
         RCA,
 
