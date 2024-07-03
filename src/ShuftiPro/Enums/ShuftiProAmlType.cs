@@ -1,12 +1,14 @@
 ﻿using System.Runtime.Serialization;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using ShuftiPro.Converters;
 
 namespace ShuftiPro.Enums
 {
-    [JsonConverter(typeof(StringEnumConverter))]
+    [JsonConverter(typeof(ShuftiProSafeStringEnumConverter<ShuftiProAmlType>))]
     public enum ShuftiProAmlType
     {
+        None,
+
         [EnumMember(Value = "warning")]
         Warning,
 
@@ -96,5 +98,17 @@ namespace ShuftiPro.Enums
 
         [EnumMember(Value = "adverse-media-v2-other-minor")]
         AdverseMediaV2OtherMinor,
+
+        [EnumMember(Value = "SIP")]
+        SIP,
+
+        [EnumMember(Value = "RCA")]
+        RCA,
+
+        [EnumMember(Value = "Businessperson")]
+        Businessperson,
+
+        [EnumMember(Value = "Notice")]
+        Notice,
     }
 }
