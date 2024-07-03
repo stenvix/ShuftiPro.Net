@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Newtonsoft.Json;
+using ShuftiPro.Converters;
 using ShuftiPro.Enums;
 
 namespace ShuftiPro.Contracts.Abstractions
@@ -27,7 +28,7 @@ namespace ShuftiPro.Contracts.Abstractions
         [JsonProperty("associates")]
         ShuftiProAssociate[] Associates { get; set; }
 
-        [JsonProperty("fields")]
+        [JsonProperty("fields"), JsonConverter(typeof(ShuftiProEmptyArrayToObjectConverter))]
         Dictionary<string, ShuftiProField[]> Fields { get; set; }
 
         [JsonProperty("media")]
