@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.0.46</Version>
+    <Version>0.0.47</Version>
     <Authors>Valentyn Stepanov</Authors>
     <PackageProjectUrl>https://github.com/stenvix/ShuftiPro.Net</PackageProjectUrl>
     <RepositoryUrl>https://github.com/stenvix/ShuftiPro.Net</RepositoryUrl>
@@ -13,7 +13,7 @@
     <Copyright>Valentyn Stepanov</Copyright>
     <PackageId>ShuftiPro.Net</PackageId>
     <Product>ShuftiPro.Net</Product>
-    <PackageVersion>0.0.46</PackageVersion>
+    <PackageVersion>0.0.47</PackageVersion>
     <Title>ShuftiPro.Net</Title>
     <Description>Implementation of Shufti Pro API as .NET client</Description>
     <PackageTags>Shufti, ShuftiPro, Shufti Pro</PackageTags>
